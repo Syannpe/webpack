@@ -35,7 +35,7 @@ module.exports = {
             chunks: ['content']        //引入哪些导包后的模块（和entry的key一致）
         }),
         new MiniCssExtractPlugin({
-            filename: "./[name]]/style.css"
+            filename: "./[name]/style.css"
         }),
         new webpack.DefinePlugin({
             "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
