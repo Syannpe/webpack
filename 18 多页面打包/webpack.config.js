@@ -9,12 +9,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const webpack = require("webpack");
-const prefix = "./18 多页面打包";
+const prefix = "18 多页面打包";
 module.exports = {
     devtool: process.env.NODE_ENV === 'development' ? "inline-source-map" : false,
     entry: {
-        "login": path.resolve(__dirname, prefix, "./src/login/index.js"),
-        "content": path.resolve(__dirname, prefix, "./src/content/main.js")
+        "login": path.resolve(__dirname, prefix + "/src/login/index.js"),
+        "content": path.resolve(__dirname, prefix + "/src/content/index.js")
     },
     output: {
         filename: "./[name]/bundle.js",
@@ -23,7 +23,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, prefix, "./src/login/login.html"),
+            template: path.resolve(__dirname, prefix + "/src/login/login.html"),
             filename: path.resolve(__dirname, "./dist/login/index.html"),
             useCdn: process.env.NODE_ENV === 'production',
             chunks: ['login']        //引入哪些导包后的模块（和entry的key一致）
@@ -35,7 +35,7 @@ module.exports = {
             chunks: ['content']        //引入哪些导包后的模块（和entry的key一致）
         }),
         new MiniCssExtractPlugin({
-            filename: "./[name]/style.css"
+            filename: "./[name]]/style.css"
         }),
         new webpack.DefinePlugin({
             "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
