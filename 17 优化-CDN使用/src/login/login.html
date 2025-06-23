@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>登录页面</title>
+    <% if(htmlWebpackPlugin.options.useCdn){ %>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <% } %>
+</head>
+<body class="bg-light">
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow p-4 login-card">
+        <h2 class="text-center mb-4">登录</h2>
+        <form>
+            <div class="mb-3">
+                <label for="phone" class="form-label">电话</label>
+                <input type="text" class="form-control" id="phone" placeholder="请输入电话">
+            </div>
+            <div class="mb-3">
+                <label for="code" class="form-label">验证码</label>
+                <input type="text" class="form-control" id="code" placeholder="请输入验证码">
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">登录</button>
+            </div>
+            <div class="text-center mt-3">
+                <a href="#">忘记密码？</a>
+            </div>
+        </form>
+    </div>
+</div>
+<% if(htmlWebpackPlugin.options.useCdn){ %>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<!--引入axios的cdn-->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<% } %>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+form a {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+form a:hover {
+    text-decoration: underline;
+}

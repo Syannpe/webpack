@@ -12,7 +12,7 @@ const webpack = require("webpack");
 
 module.exports = {
     devtool: process.env.NODE_ENV === 'development' ? "inline-source-map" : false,
-    entry: path.resolve(__dirname, "17 优化-CDN使用/src/login/index.js"),
+    entry: path.resolve(__dirname, "16 解析别名alias/src/login/index.js"),
     output: {
         filename: "./login/bundle.js",
         path: path.resolve(__dirname, "./dist"),
@@ -20,9 +20,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, "17 优化-CDN使用/src/login/login.html"),
-            filename: path.resolve(__dirname, "./dist/index.html"),
-            useCdn: process.env.NODE_ENV === 'production',
+            template: path.resolve(__dirname, "16 解析别名alias/src/login/login.html"),
+            filename: path.resolve(__dirname, "./dist/index.html")
         }),
         new MiniCssExtractPlugin({
             filename: "./login/style.css"
@@ -70,8 +69,9 @@ module.exports = {
             new CssMinimizerPlugin()
         ]
     },
-    externals: process.env.NODE_ENV === 'development' ? {} : {
-        "bootstrap/dist/css/bootstrap.min.css": "bootstrap",
-        "axios": "axios"
-    },
+    resolve: {
+        alias: {
+            "@": path.resolve(__dirname, "16 解析别名alias/src")
+        }
+    }
 }
